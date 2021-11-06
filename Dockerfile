@@ -2,12 +2,11 @@ FROM ubuntu:focal
 LABEL maintainer "Lumir Jasiok <lumir.jasiok@alfawolf.eu>"
 
 ENV ETCDCTL_API="3"
+ENV ETCD_UNSUPPORTED_ARCH="arm64"
 
 RUN apt update && apt install -y etcd-server etcd-client && apt clean
 
 EXPOSE 2379 2380
-
-ENV ETCD_UNSUPPORTED_ARCH=arm
 
 USER etcd
 
